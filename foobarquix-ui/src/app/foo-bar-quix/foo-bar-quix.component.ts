@@ -12,7 +12,7 @@ export class FooBarQuixComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
   }
-
+  convertedNumbersList: NumberConverted[] = [];
   ngOnDestroy(): void {
   }
 
@@ -21,6 +21,7 @@ export class FooBarQuixComponent implements OnInit, OnDestroy {
     .subscribe(
       response => {
         const numberConverted: NumberConverted = {numberToConvert: inputNumber, result: response.result};
+        this.convertedNumbersList.push(numberConverted);
        console.log(numberConverted)
       },
       error => {
