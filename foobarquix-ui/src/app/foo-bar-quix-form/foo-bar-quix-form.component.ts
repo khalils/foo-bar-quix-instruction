@@ -20,6 +20,6 @@ export class FooBarQuixFormComponent {
 
 
   submitNumber(): void {
+    this.submitNumberOutput.emit(this.convertForm.get('inputNumber').value);
   }
-
 }
