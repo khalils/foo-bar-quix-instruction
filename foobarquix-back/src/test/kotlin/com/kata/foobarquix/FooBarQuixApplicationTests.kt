@@ -26,5 +26,9 @@ class FooBarQuixApplicationTests {
 	fun testFooBarQuixShouldReturnBarBar() {
 		assertEquals("BarBar",fooBarQuixService.convertNumber(5))
 	}
+	@Test
+	fun testFooBarQuixShouldReturnQuix() {
+		assertEquals("Quix",fooBarQuixService.convertNumber(7))
+	}
 
 }
