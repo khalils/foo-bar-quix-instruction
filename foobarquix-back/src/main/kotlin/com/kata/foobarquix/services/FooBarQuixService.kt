@@ -6,21 +6,24 @@ import org.springframework.stereotype.Component
 class FooBarQuixService {
 
     fun convertNumber(inputNumber: Int): String {
-    
-    	val result = StringBuilder()
-    	if(inputNumber % 3 == 0){
-    		result.append("Foo")
-    	}else if(inputNumber % 5 == 0){
-    		result.append("Bar")
+	    
+	    val result = StringBuilder()
+	    val fooBarMap = mapOf(3 to "Foo", 5 to "Bar")
+	    
+	    fooBarMap.forEach { k, v ->
+        	if ( inputNumber % k == 0) {
+            	result.append(v)
+        	}
     	}
-    	
-    	if(inputNumber.toString().contains("3")){
-    		result.append("Foo")
-    	}else if(inputNumber.toString().contains("5")){
-    		result.append("Bar")
-    	}else if(inputNumber.toString().contains("7")){
-    		result.append("Quix")
-    	}
+	    
+	    val fooBarQuixMap = fooBarMap + Pair(7,"Quix")
+
+	    for(digit in inputNumber.toString()) {
+	    	val number = Integer.valueOf(digit.toString())
+	    	if(fooBarQuixMap.keys.contains(number)){
+	    		result.append(fooBarQuixMap[number])
+	    	}
+	    }
 
         return result.toString().ifEmpty{
 	 		inputNumber.toString()
