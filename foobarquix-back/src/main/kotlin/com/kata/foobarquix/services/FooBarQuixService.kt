@@ -18,8 +18,10 @@ class FooBarQuixService {
     		result.append("Foo")
     	}else if(inputNumber.toString().contains("5")){
     		result.append("Bar")
+    	}else if(inputNumber.toString().contains("7")){
+    		result.append("Quix")
     	}
-    	
+
         return result.toString().ifEmpty{
 	 		inputNumber.toString()
 	 	}
